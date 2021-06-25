@@ -1,5 +1,7 @@
-rm build -r
-mkdir build
+if (!(Test-Path -path "build")) {
+	mkdir build
+}
+
 cd build
 conan install .. -s build_type=Debug
 cmake .. -DCMAKE_BUILD_TYPE=Debug
